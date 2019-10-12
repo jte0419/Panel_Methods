@@ -1,6 +1,6 @@
 # Panel_Methods
 
-This respository contains all the code related to panel methods.  This includes scripts and functions, in both MATLAB and Python.  It will be updated continously as I finish the video series with the final Source Panel Method and Vortex Panel Method code.  Explanations of the different files can be found in the sections below, which are pretty much the same as you'll find on my [website launching page](http://www.joshtheengineer.com/panel-methods/).  Links to my YouTube videos and blog posts on my website are included.  Note that functions are always named in all caps.
+This repository contains all the code related to panel methods.  This includes scripts and functions, in both MATLAB and Python.  It will be updated continuously as I finish the video series with the final Source Panel Method and Vortex Panel Method code.  Explanations of the different files can be found in the sections below, which are pretty much the same as you'll find on my [website launching page](http://www.joshtheengineer.com/panel-methods/).  Links to my YouTube videos and blog posts on my website are included.  Note that functions are always named in all caps.
 
 ## UIUC Airfoil Database File Download
 
@@ -24,7 +24,7 @@ With the airfoils download from the UIUC database in the previous section, we no
 
 ## Running XFoil from MATLAB and Python
 
-This section is for running XFoil froma  script in MATLAB/Python.  This is convenient if you want to be able to quickly change a parameter (or multiple parameters) and output the results, but you don't want to go into the command line of XFoil every time.  This is useful for gettting airfoil data in a MATLAB GUI for instance.  If you have an edit text box for changing the angle of attack, then every time it's changed by the user, the MATLAB program will call XFoil using the updated AoA value and return the airfoil coordinates and pressure coefficient data (for example).
+This section is for running XFoil froma  script in MATLAB/Python.  This is convenient if you want to be able to quickly change a parameter (or multiple parameters) and output the results, but you don't want to go into the command line of XFoil every time.  This is useful for getting airfoil data in a MATLAB GUI for instance.  If you have an edit text box for changing the angle of attack, then every time it's changed by the user, the MATLAB program will call XFoil using the updated AoA value and return the airfoil coordinates and pressure coefficient data (for example).
 
 * [MATLAB_XFOIL.m](./MATLAB_XFOIL.m)
 * [Python_XFoil.py](./Python_XFoil.py)
@@ -52,7 +52,7 @@ When assuming that the flow is both irrotational and incompressible, we can simp
 
 ## Elementary Potential Flows
 
-In order to build more complex flows, we need to understand the simplest types of potential flows. Here, we go through three elementary flows (uniform, source/sink, and vortex), along with two combinations of these flows (unifor + source/sink, uniform + vortex).
+In order to build more complex flows, we need to understand the simplest types of potential flows. Here, we go through three elementary flows (uniform, source/sink, and vortex), along with two combinations of these flows (uniform + source/sink, uniform + vortex).
 
 * Uniform Flow
   * [Uniform_Flow.m](./Uniform_Flow.m)
@@ -82,7 +82,7 @@ In order to build more complex flows, we need to understand the simplest types o
 
 ## Panel Method Geometry
 
-The first step in writing your own panel method code is to understand the geometry and its associated variables.  Here, we go through this indetail for an arbitrary shape (circle approximated by eight panels).  In the MATLAB and Python codes, we also show how this works for an aifoil.  Note that for these codes to work, you will need to have the appropriate *LOAD_AIRFOIL_SELIG* function downloaded in the directory.
+The first step in writing your own panel method code is to understand the geometry and its associated variables.  Here, we go through this indetail for an arbitrary shape (circle approximated by eight panels).  In the MATLAB and Python codes, we also show how this works for an airfoil.  Note that for these codes to work, you will need to have the appropriate *LOAD_AIRFOIL_SELIG* function downloaded in the directory.
 
 * [Panel_Method_Geometry.m](./Panel_Method_Geometry.m)
 * [Panel_Method_Geometry.py](./Panel_Method_Geometry.py)
