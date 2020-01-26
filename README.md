@@ -1,6 +1,6 @@
 # Panel_Methods
 
-This repository contains all the code related to panel methods.  This includes scripts and functions, in both MATLAB and Python.  It will be updated continuously as I finish the video series with the final Source Panel Method and Vortex Panel Method code.  Explanations of the different files can be found in the sections below, which are pretty much the same as you'll find on my [website launching page](http://www.joshtheengineer.com/panel-methods/).  Links to my YouTube videos and blog posts on my website are included.  Note that functions are always named in all caps.
+This repository contains all the code related to panel methods.  This includes scripts and functions, in both MATLAB and Python.  It will be updated continuously as I finish the video series with the final Source Panel Method (SPM) and Vortex Panel Method (VPM) code.  Explanations of the different files can be found in the sections below, which are pretty much the same as you'll find on my [website launching page](http://www.joshtheengineer.com/panel-methods/).  Links to my YouTube videos and blog posts on my website are included.  Note that functions are always named in all caps.
 
 ## UIUC Airfoil Database File Download
 
@@ -82,11 +82,37 @@ In order to build more complex flows, we need to understand the simplest types o
 
 ## Panel Method Geometry
 
-The first step in writing your own panel method code is to understand the geometry and its associated variables.  Here, we go through this indetail for an arbitrary shape (circle approximated by eight panels).  In the MATLAB and Python codes, we also show how this works for an airfoil.  Note that for these codes to work, you will need to have the appropriate *LOAD_AIRFOIL_SELIG* function downloaded in the directory.
+The first step in writing your own panel method code is to understand the geometry and its associated variables.  Here, we go through this in detail for an arbitrary shape (circle approximated by eight panels).  In the MATLAB and Python codes, we also show how this works for an airfoil.  Note that for these codes to work, you will need to have the appropriate *[LOAD_AIRFOIL_SELIG](./LOAD_AIRFOIL_SELIG.m)* function downloaded in the directory (unless you want to comment out the airfoil loading section).
 
 * [Panel_Method_Geometry.m](./Panel_Method_Geometry.m)
 * [Panel_Method_Geometry.py](./Panel_Method_Geometry.py)
 * [YouTube Video](https://www.youtube.com/watch?v=kIqxbd937PI)
 * [Blog Post](http://www.joshtheengineer.com/2019/10/09/panel-method-geometry/)
+
+## Building More Complex Potential Flows
+
+In the *Elementary Potential Flows* section, we went over all the relevant elementary incompressible potential flows.  We can now use these to build up a more complex flow step by step.  The end result of this section is to obtain an expression for the velocity potential induced at an arbitrary point P in the flow due to uniform flow and N source panels (that approximate the airfoil geometry).
+
+* [YouTube Video](https://www.youtube.com/watch?v=EKzbwJvKcmw)
+
+## Flow Around an Airfoil
+
+How do we use the velocity potential equation derived in the previous section to compute the flow around an airfoil?  This section explains the necessary conditions that we can use to compute the unknown source panel strengths.  We use the boundary condition for an impermeable (solid) object to stipulate that the normal velocity at each panel control point should be zero.
+
+* [YouTube Video](https://www.youtube.com/watch?v=cLdv1UfX1g8)
+
+## Source Panel Method: Geometric Integrals
+
+When we take the appropriate partial derivative (normal, tangential, X, or Y) of the velocity potential equation, we end up with a complicated integral expression inside the source panel term.  In order to code up our system of equations in the next section, we need to find an explicit expression for this integral (also called the *geometric integral* since it only depends on the airfoil's geometry).  The videos below have the full derivations for the normal, tangential, X, and Y geometric integrals.  You should at least watch the I(ij) video since it includes the entire derivation, whereas the other videos don't repeat the portions that are the same as the I(ij) derivation video (to keep them shorter).
+
+* [YouTube SPM Normal Velocity Geometric Integral I(ij) Derivation](https://www.youtube.com/watch?v=76vPudNET6U)
+* [YouTube SPM Tangential Velocity Geometric Integral J(ij) Derivation](https://www.youtube.com/watch?v=JRHnOsueic8)
+* [YouTube SPM Streamline X and Y Geometric Integral (Mx(ij), My(ij)) Derivation](https://www.youtube.com/watch?v=BnPZjGCatcg)
+
+## Source Panel Method System of Equations
+
+Now that we have the normal velocity expression for each panel on the airfoil, we can set up a system of equations that can be easily solved.
+
+* [YouTube Video](https://www.youtube.com/watch?v=ep7vPzGYsbw)
 
 
