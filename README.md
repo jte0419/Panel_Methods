@@ -124,5 +124,6 @@ We have finally finished the derivations needed to code up a working version of 
 * [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
 * [SP_Circle.py](./SP_Circle.py)
 * [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
-* [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
+* [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)\
+* [YouTube Video](https://www.youtube.com/watch?v=zIrDfEz-5mc)
 
