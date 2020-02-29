@@ -115,4 +115,14 @@ Now that we have the normal velocity expression for each panel on the airfoil, w
 
 * [YouTube Video](https://www.youtube.com/watch?v=ep7vPzGYsbw)
 
+## Source Panel Method: Circular Cylinder
+
+We have finally finished the derivations needed to code up a working version of the source panel method.  Recall that this implementation using constant source panel strengths (which can vary from panel to panel).  This first implementation of the method is for the simplest case: flow over a circular cylinder.  The reason to use this simple case is that it has an analytical solution for the pressure coefficient that we can compare to (and it is also generally used as a source panel method comparison test case).  The code is provided for both MATLAB and Python.  The main code is the *SPM_Circle* file, which needs both functions to run properly (*COMPUTE_IJ_SPM* and *STREAMLINE_SPM*).
+
+* [SP_Circle.m](./SP_Circle.m)
+* [COMPUTE_IJ_SPM.m](./COMPUTE_IJ_SPM.m)
+* [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
+* [SP_Circle.py](./SP_Circle.py)
+* [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
+* [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
 
