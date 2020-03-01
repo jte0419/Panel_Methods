@@ -4,7 +4,7 @@ function [I,J] = COMPUTE_IJ_SPM(XC,YC,XB,YB,phi,S)
 % YouTube   : www.youtube.com/joshtheengineer
 % Website   : www.joshtheengineer.com
 %
-% PUROSE
+% PURPOSE
 % - Compute the integral expression for constant strength source panels
 % - Source panel strengths are constant, but can change from panel to panel
 % - Geometric integral for panel-normal    : I(ij)
