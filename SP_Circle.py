@@ -84,6 +84,7 @@ XC  = np.zeros(numPan)                                                          
 YC  = np.zeros(numPan)                                                          # Initialize control point Y-coordinate
 S   = np.zeros(numPan)                                                          # Intialize panel length array
 phi = np.zeros(numPan)                                                          # Initialize panel orientation angle array
+
 # Find geometric quantities of the airfoil
 for i in range(numPan):                                                         # Loop over all panels
     XC[i]   = 0.5*(XB[i]+XB[i+1])                                               # X-value of control point
@@ -134,7 +135,7 @@ print("Sum of L: ",sum(lam*S))                                                  
 # Compute velocities
 # - Simpler method: Vt = Vinf*np.sin(beta) + np.dot(J,lam)/(2*np.pi)
 #                   Cp = 1 - (Vt/Vinf)**2
-Vt  = np.zeros(numPan)                                                          # Initialize tangential velocity array
+Vt = np.zeros(numPan)                                                           # Initialize tangential velocity array
 Cp = np.zeros(numPan)                                                           # Initialize pressure coefficient array
 for i in range(numPan):                                                         # Loop over all i panels
     addVal = 0                                                                  # Reset the summation value to zero
@@ -151,8 +152,8 @@ analyticCP    = 1 - 4*np.sin(analyticTheta)**2                                  
 # %% COMPUTE LIFT AND DRAG
 
 # Compute normal and axial force coefficients
-CN = Cp*S*np.sin(beta)                                                          # Normal force coefficient []
-CA = Cp*S*np.cos(beta)                                                          # Axial force coefficient []
+CN = -Cp*S*np.sin(beta)                                                         # Normal force coefficient []
+CA = -Cp*S*np.cos(beta)                                                         # Axial force coefficient []
 
 # Compute lift and drag coefficients
 CL = sum(CN*np.cos(AoAR)) - sum(CA*np.sin(AoAR))                                # Decompose axial and normal to lift coefficient []
@@ -161,52 +162,53 @@ CD = sum(CN*np.sin(AoAR)) + sum(CA*np.cos(AoAR))                                
 print("CL      : ",CL)                                                          # Display lift coefficient (should be zero)
 print("CD      : ",CD)                                                          # Display drag coefficient (should be zero)
 
-# %% COMPUTE AND DISPLAY STREAMLINES - REF [4]
+# %% COMPUTE STREAMLINES - REF [4]
 
-# Grid parameters
-nGridX   = 100                                                                  # X-grid for streamlines and contours
-nGridY   = 100                                                                  # Y-grid for streamlines and contours
-xVals    = [-1.5, 1.5]                                                          # X-grid extents [min, max]
-yVals    = [-1.5, 1.5]                                                          # Y-grid extents [min, max]
-
-# Streamline parameters
-slPct  = 30                                                                     # Percentage of streamlines of the grid
-Ysl    = np.linspace(yVals[0],yVals[1],int((slPct/100)*nGridY))                 # Create array of Y streamline starting points
-Xsl    = xVals[0]*np.ones(len(Ysl))                                             # Create array of X streamline starting points
-XYsl   = np.vstack((Xsl.T,Ysl.T)).T                                             # Concatenate X and Y streamline starting points
-
-# Generate the grid points
-Xgrid  = np.linspace(xVals[0],xVals[1],nGridX)                                  # X-values in evenly spaced grid
-Ygrid  = np.linspace(yVals[0],yVals[1],nGridY)                                  # Y-values in evenly spaced grid
-XX, YY = np.meshgrid(Xgrid, Ygrid)                                              # Create meshgrid from X and Y grid arrays
-
-# Initialize velocities
-Vx     = np.zeros([nGridX,nGridY])                                              # Initialize X velocity matrix
-Vy     = np.zeros([nGridX,nGridY])                                              # Initialize Y velocity matrix
-
-# Path to figure out if grid point is inside polygon or not
-AF     = np.vstack((XB.T,YB.T)).T                                               # Concatenate XB and YB geometry points
-afPath = path.Path(AF)                                                          # Create a path for the geometry
-
-# Solve for grid point X and Y velocities
-for m in range(nGridX):                                                         # Loop over X-grid points
-    for n in range(nGridY):                                                     # Loop over Y-grid points
-        XP     = XX[m,n]                                                        # Isolate X point
-        YP     = YY[m,n]                                                        # Isolate Y point
-        Mx, My = STREAMLINE_SPM(XP,YP,XB,YB,phi,S)                              # Compute streamline Mx and My values (Ref [4])
-        
-        # Check if grid points are in object
-        # - If they are, assign a velocity of zero
-        if afPath.contains_points([(XP,YP)]):                                   # If (XP,YP) is in the polygon body
-            Vx[m,n] = 0                                                         # X-velocity is zero
-            Vy[m,n] = 0                                                         # Y-velocity is zero
-        else:                                                                   # If (XP,YP) is not in the polygon body
-            Vx[m,n] = Vinf*np.cos(AoAR) + sum(lam*Mx/(2*np.pi))                 # Compute X-velocity
-            Vy[m,n] = Vinf*np.sin(AoAR) + sum(lam*My/(2*np.pi))                 # Compute Y-velocity
-        
-# Compute grid point velocity magnitude and pressure coefficient
-Vxy  = np.sqrt(Vx**2 + Vy**2)                                                   # Compute magnitude of velocity vector
-CpXY = 1 - (Vxy/Vinf)**2                                                        # Pressure coefficient []
+if (flagPlot[3] == 1 or flagPlot[4] == 1):
+    # Grid parameters
+    nGridX   = 100                                                              # X-grid for streamlines and contours
+    nGridY   = 100                                                              # Y-grid for streamlines and contours
+    xVals    = [-1.5, 1.5]                                                      # X-grid extents [min, max]
+    yVals    = [-1.5, 1.5]                                                      # Y-grid extents [min, max]
+    
+    # Streamline parameters
+    slPct  = 30                                                                 # Percentage of streamlines of the grid
+    Ysl    = np.linspace(yVals[0],yVals[1],int((slPct/100)*nGridY))             # Create array of Y streamline starting points
+    Xsl    = xVals[0]*np.ones(len(Ysl))                                         # Create array of X streamline starting points
+    XYsl   = np.vstack((Xsl.T,Ysl.T)).T                                         # Concatenate X and Y streamline starting points
+    
+    # Generate the grid points
+    Xgrid  = np.linspace(xVals[0],xVals[1],nGridX)                              # X-values in evenly spaced grid
+    Ygrid  = np.linspace(yVals[0],yVals[1],nGridY)                              # Y-values in evenly spaced grid
+    XX, YY = np.meshgrid(Xgrid, Ygrid)                                          # Create meshgrid from X and Y grid arrays
+    
+    # Initialize velocities
+    Vx     = np.zeros([nGridX,nGridY])                                          # Initialize X velocity matrix
+    Vy     = np.zeros([nGridX,nGridY])                                          # Initialize Y velocity matrix
+    
+    # Path to figure out if grid point is inside polygon or not
+    AF     = np.vstack((XB.T,YB.T)).T                                           # Concatenate XB and YB geometry points
+    afPath = path.Path(AF)                                                      # Create a path for the geometry
+    
+    # Solve for grid point X and Y velocities
+    for m in range(nGridX):                                                     # Loop over X-grid points
+        for n in range(nGridY):                                                 # Loop over Y-grid points
+            XP     = XX[m,n]                                                    # Isolate X point
+            YP     = YY[m,n]                                                    # Isolate Y point
+            Mx, My = STREAMLINE_SPM(XP,YP,XB,YB,phi,S)                          # Compute streamline Mx and My values (Ref [4])
+            
+            # Check if grid points are in object
+            # - If they are, assign a velocity of zero
+            if afPath.contains_points([(XP,YP)]):                               # If (XP,YP) is in the polygon body
+                Vx[m,n] = 0                                                     # X-velocity is zero
+                Vy[m,n] = 0                                                     # Y-velocity is zero
+            else:                                                               # If (XP,YP) is not in the polygon body
+                Vx[m,n] = Vinf*np.cos(AoAR) + sum(lam*Mx/(2*np.pi))             # Compute X-velocity
+                Vy[m,n] = Vinf*np.sin(AoAR) + sum(lam*My/(2*np.pi))             # Compute Y-velocity
+            
+    # Compute grid point velocity magnitude and pressure coefficient
+    Vxy  = np.sqrt(Vx**2 + Vy**2)                                               # Compute magnitude of velocity vector
+    CpXY = 1 - (Vxy/Vinf)**2                                                    # Pressure coefficient []
 
 # %% PLOTTING
 
