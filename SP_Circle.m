@@ -159,8 +159,8 @@ analyticCP    = 1-4*sin(analyticTheta).^2;                                  % An
 %% COMPUTE LIFT AND DRAG
 
 % Compute normal and axial force coefficients
-CN = Cp.*S.*sin(beta);                                                      % Normal force coefficient []
-CA = Cp.*S.*cos(beta);                                                      % Axial force coefficient []
+CN = -Cp.*S.*sin(beta);                                                      % Normal force coefficient []
+CA = -Cp.*S.*cos(beta);                                                      % Axial force coefficient []
 
 % Compute lift and drag coefficients
 CL = sum(CN.*cosd(AoA)) - sum(CA.*sind(AoA));                               % Decompose axial and normal to lift coefficient []
