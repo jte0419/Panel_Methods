@@ -4,7 +4,7 @@ function [Mx,My] = STREAMLINE_SPM(XP,YP,XB,YB,phi,S)
 % YouTube   : www.youtube.com/joshtheengineer
 % Website   : www.joshtheengineer.com
 %
-% PUROSE
+% PURPOSE
 % - Compute the geometric integral at point P due to source panels
 % - Source panel strengths are constant, but can change from panel to panel
 % - Geometric integral for X-direction: Mx(ij)
