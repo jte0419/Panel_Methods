@@ -82,7 +82,7 @@ if (sumEdge < 0):                                                               
 # Initialize variables
 XC  = np.zeros(numPan)                                                          # Initialize control point X-coordinate
 YC  = np.zeros(numPan)                                                          # Initialize control point Y-coordinate
-S   = np.zeros(numPan)                                                          # Intialize panel length array
+S   = np.zeros(numPan)                                                          # Initialize panel length array
 phi = np.zeros(numPan)                                                          # Initialize panel orientation angle array
 
 # Find geometric quantities of the airfoil
