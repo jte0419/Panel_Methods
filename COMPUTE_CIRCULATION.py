@@ -15,8 +15,8 @@
 # - x0   : Ellipse center X coordinate
 # - y0   : Ellipse center Y coordinate
 # - numT : Number of points for integral
-# - XX   : Meshgrid X values
-# - YY   : Meshgrid Y values
+# - X    : Array of X-grid values
+# - Y    : Array of Y-grid values
 #
 # OUTPUTS
 # - Gamma : Circulation [length^2/time]
