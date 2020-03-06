@@ -119,29 +119,34 @@ Now that we have the normal velocity expression for each panel on the airfoil, w
 
 We have finally finished the derivations needed to code up a working version of the source panel method.  Recall that this implementation uses constant source panel strengths (which can vary from panel to panel).  This first implementation of the method is for the simplest case: flow over a circular cylinder.  The reason to use this simple case is that it has an analytical solution for the pressure coefficient that we can compare to (and it is also generally used as a source panel method comparison test case).  The code is provided for both MATLAB and Python.  The main code is the *SP_Circle* file, which needs both functions to run properly (*COMPUTE_IJ_SPM* and *STREAMLINE_SPM*).
 
-* [SP_Circle.m](./SP_Circle.m)
-* [COMPUTE_IJ_SPM.m](./COMPUTE_IJ_SPM.m)
-* [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
-* [SP_Circle.py](./SP_Circle.py)
-* [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
-* [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
+* MATLAB Code
+  * [SP_Circle.m](./SP_Circle.m)
+  * [COMPUTE_IJ_SPM.m](./COMPUTE_IJ_SPM.m)
+  * [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
+* Python Code
+  * [SP_Circle.py](./SP_Circle.py)
+  * [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
+  * [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
 * [YouTube Video](https://www.youtube.com/watch?v=zIrDfEz-5mc)
 
 ## Source Panel Method: Airfoil
 
 After making sure the simple validation case of the circular cylinder worked properly, we updated the code to be able to run with airfoils.  There are a couple more functions, programs, and directories needed when running this code.  You can run my code in either MATLAB or Python.  Whichever you choose, make sure to download all the files with that extension (*.m* or *.py*) from the list below.  You will also need the directory with the airfoils (*Airfoil_DAT_Selig*, make sure to extract after downloading the *zip* file) and the XFOIL executable (*xfoil.exe*) in the directory with all the code.  To run the code, open the *SP_Airfoil* script and press *Run* or *F5*.
 
-* [SP_Airfoil.m](./SP_Airfoil.m)
-* [XFOIL.m](./XFOIL.m)
-* [COMPUTE_IJ_SPM.m](./COMPUTE_IJ_SPM.m)
-* [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
-* [COMPUTE_CIRCULATION.m](./COMPUTE_CIRCULATION.m)
-* [SP_Airfoil.py](./SP_Airfoil.py)
-* [XFOIL.py](./XFOIL.py)
-* [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
-* [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
-* [COMPUTE_CIRCULATION.py](./COMPUTE_CIRCULATION.py)
-* [Airfoil Directory](./Airfoil_DAT_Selig.zip)
-* [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
+* MATLAB Code
+  * [SP_Airfoil.m](./SP_Airfoil.m)
+  * [XFOIL.m](./XFOIL.m)
+  * [COMPUTE_IJ_SPM.m](./COMPUTE_IJ_SPM.m)
+  * [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
+  * [COMPUTE_CIRCULATION.m](./COMPUTE_CIRCULATION.m)
+* Python Code
+  * [SP_Airfoil.py](./SP_Airfoil.py)
+  * [XFOIL.py](./XFOIL.py)
+  * [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
+  * [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
+  * [COMPUTE_CIRCULATION.py](./COMPUTE_CIRCULATION.py)
+* Other
+  * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
+  * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
 * [YouTube Video](https://www.youtube.com/watch?v=fdNOYdwY9Bw)
 
