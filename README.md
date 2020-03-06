@@ -143,5 +143,5 @@ After making sure the simple validation case of the circular cylinder worked pro
 * [COMPUTE_CIRCULATION.py](./COMPUTE_CIRCULATION.py)
 * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
 * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
-
+* [YouTube Video](https://www.youtube.com/watch?v=fdNOYdwY9Bw)
 
