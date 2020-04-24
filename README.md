@@ -150,3 +150,24 @@ After making sure the simple validation case of the circular cylinder worked pro
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
 * [YouTube Video](https://www.youtube.com/watch?v=fdNOYdwY9Bw)
 
+## Vortex Panel Method System of Equations
+
+In the same way that we wrote the system of equations for the source panel method, we can write the system of equations for the vortex panel method.  To include the Kutta condition equation in the matrix, we must remove one of the normal velocity equations for one of the control points.
+
+* [YouTube Video](https://www.youtube.com/watch?v=j3ETHFBiYOg)
+
+## Vortex Panel Method: Airfoil (COMING SOON!)
+
+This video will go over what we changed from the SPM code to incorporate the new system of equations from the previous section.  I'll show results for various airfoils (with comparisons to XFOIL), and show the limitations of this implementation of the VPM.  This will motivate the need for a better implementation.
+
+## Source/Vortex Panel Method System of Equations (COMING SOON!)
+
+The previous video on the constant strength vortex panel method will have shown that there are still some limitations with this simplified method, and to improve it we can combine the source and vortex panel methods into one source panel/vortex panel (SPVP) method.  This video will go over how to build the system of equations for the SPVP method and how to derive and apply a different version of the Kutta condition.
+
+## Source/Vortex Panel Method: Airfoil (COMING SOON!)
+
+This video will implement the necessary changes in the code for the SPVP method.  We will look at a bunch of different airfoil cases that happened to fail in the original VPM implementation.  We will compare results to XFOIL.
+
+## Multi-Element Source/Vortex Panel Method (COMING SOON!)
+
+This will be the final video of the series, where I adapt the code from the previous section to be able to load multiple airfoils.  I'll show how to load airfoils, manipulate their locations relative to each other, and how to implement the necessary changes to the code to handle multiple airfoils.  We will go over a couple simple examples to test the validity, and then hopefully I'll be able to show a validation case to an airfoil system from a paper.
