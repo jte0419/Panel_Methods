@@ -42,6 +42,9 @@ for j = 1:1:numPan                                                          % Lo
     Cy = -sin(phi(j));                                                      % C term (Y-direction)
     Dy = YP - YB(j);                                                        % D term (Y-direction)
     E  = sqrt(B-A^2);                                                       % E term
+    if (isnan(E) || ~isreal(E))                                             % If E is a NaN or not real
+        E = 0;                                                              % Set E equal to zero
+    end
     
     % Compute Mx, Ref [1]
     term1 = 0.5*Cx*log((S(j)^2+2*A*S(j)+B)/B);                              % First term in Mx equation
