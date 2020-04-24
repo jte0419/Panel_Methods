@@ -47,7 +47,7 @@ for i = 1:1:numPan                                                          % Lo
             Ct = -cos(phi(i)-phi(j));                                       % C term (tangential)
             Dt = (XC(i)-XB(j))*cos(phi(i))+(YC(i)-YB(j))*sin(phi(i));       % D term (tangential)
             E  = sqrt(B-A^2);                                               % E term
-            if (~isreal(E))                                                 % If E is imaginary
+            if (isnan(E) || ~isreal(E))                                     % If E is a NaN or not real
                 E = 0;                                                      % Set E equal to zero
             end
             
