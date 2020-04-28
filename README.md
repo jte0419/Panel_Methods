@@ -156,9 +156,25 @@ In the same way that we wrote the system of equations for the source panel metho
 
 * [YouTube Video](https://www.youtube.com/watch?v=j3ETHFBiYOg)
 
-## Vortex Panel Method: Airfoil (COMING SOON!)
+## Vortex Panel Method: Airfoil
 
-This video will go over what we changed from the SPM code to incorporate the new system of equations from the previous section.  I'll show results for various airfoils (with comparisons to XFOIL), and show the limitations of this implementation of the VPM.  This will motivate the need for a better implementation.
+The source panel method code was updated to be able to solve for the vortex panel strengths instead of the source panel strengths.  You can run my code in either MATLAB or Python.  Whichever you choose, make sure to download all the files with that extension (*.m* or *.py*) from the list below.  You will also need the directory with the airfoils (*Airfoil_DAT_Selig*, make sure to extract after downloading the *zip* file) and the XFOIL executable (*xfoil.exe*) in the directory with all the code.  To run the code, open the *VP_Airfoil* script and press *Run* or *F5*.  The limitations of this VPM implementation are shown in my YouTube video, and motivate the need for the combined source/vortex panel method.
+
+* MATLAB Code
+  * [VP_Airfoil.m](./VP_Airfoil.m)
+  * [XFOIL.m](./XFOIL.m)
+  * [COMPUTE_KL_VPM.m](./COMPUTE_KL_VPM.m)
+  * [STREAMLINE_VPM.m](./STREAMLINE_VPM.m)
+  * [COMPUTE_CIRCULATION.m](./COMPUTE_CIRCULATION.m)
+* Python Code
+  * [VP_Airfoil.py](./VP_Airfoil.py)
+  * [XFOIL.py](./XFOIL.py)
+  * [COMPUTE_KL_VPM.py](./COMPUTE_KL_VPM.py)
+  * [STREAMLINE_VPM.py](./STREAMLINE_VPM.py)
+  * [COMPUTE_CIRCULATION.py](./COMPUTE_CIRCULATION.py)
+* Other
+  * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
+  * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
 
 ## Source/Vortex Panel Method System of Equations (COMING SOON!)
 
