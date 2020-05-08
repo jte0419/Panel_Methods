@@ -40,7 +40,7 @@ numPan =len(XB)-1                                                               
 # Check for direction of points
 edge = np.zeros(numPan)                                                         # Initialize edge check value
 for i in range(numPan):                                                         # Loop over all panels
-    edge[i] = (XB[i+1]-XB[i])*(YB[i+1]-YB[i])                                   # Compute edge value for each panel
+    edge[i] = (XB[i+1]-XB[i])*(YB[i+1]+YB[i])                                   # Compute edge value for each panel
 
 sumEdge = np.sum(edge)                                                          # Sum all panel edge values
 
