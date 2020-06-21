@@ -3,6 +3,7 @@ function [I,J] = COMPUTE_IJ_SPM(XC,YC,XB,YB,phi,S)
 % Written by: JoshTheEngineer
 % YouTube   : www.youtube.com/joshtheengineer
 % Website   : www.joshtheengineer.com
+% Updated   : 04/28/20 - Updated E value error handling to match Python
 %
 % PURPOSE
 % - Compute the integral expression for constant strength source panels
@@ -47,8 +48,8 @@ for i = 1:1:numPan                                                          % Lo
             Ct = -cos(phi(i)-phi(j));                                       % C term (tangential)
             Dt = (XC(i)-XB(j))*cos(phi(i))+(YC(i)-YB(j))*sin(phi(i));       % D term (tangential)
             E  = sqrt(B-A^2);                                               % E term
-            if (isnan(E) || ~isreal(E))                                     % If E is a NaN or not real
-                E = 0;                                                      % Set E equal to zero
+            if (~isreal(E))
+                E = 0;
             end
             
             % Compute I (needed for normal velocity), Ref [1]
@@ -62,11 +63,11 @@ for i = 1:1:numPan                                                          % Lo
             J(i,j) = term1 + term2;                                         % Compute J integral
         end
         
-        % Zero out any NANs
-        if (isnan(I(i,j)))
+        % Zero out any NANs, INFs, or imaginary numbers
+        if (isnan(I(i,j)) || isinf(I(i,j)) || ~isreal(I(i,j)))
             I(i,j) = 0;
         end
-        if (isnan(J(i,j)))
+        if (isnan(J(i,j)) || isinf(J(i,j)) || ~isreal(J(i,j)))
             J(i,j) = 0;
         end
     end
