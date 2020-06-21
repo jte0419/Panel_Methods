@@ -1,17 +1,19 @@
 function [Mx,My] = STREAMLINE_SPM(XP,YP,XB,YB,phi,S)
 
+% FUNCTION - COMPUTE Mx AND My GEOMETRIC INTEGRALS FOR SOURCE PANEL METHOD
 % Written by: JoshTheEngineer
 % YouTube   : www.youtube.com/joshtheengineer
 % Website   : www.joshtheengineer.com
+% Updated   : 04/28/20 - Updated E value error handling to match Python
 %
 % PURPOSE
 % - Compute the geometric integral at point P due to source panels
 % - Source panel strengths are constant, but can change from panel to panel
-% - Geometric integral for X-direction: Mx(ij)
-% - Geometric integral for Y-direction: My(ij)
+% - Geometric integral for X-direction: Mx(pj)
+% - Geometric integral for Y-direction: My(pj)
 % 
 % REFERENCE
-% - [1]: Streamline Geometric Integral SPM, Mx(ij) and My(ij)
+% - [1]: Streamline Geometric Integral SPM, Mx(pj) and My(pj)
 %           Link: https://www.youtube.com/watch?v=BnPZjGCatcg
 % INPUTS
 % - XP     : X-coordinate of computation point, P
@@ -42,8 +44,8 @@ for j = 1:1:numPan                                                          % Lo
     Cy = -sin(phi(j));                                                      % C term (Y-direction)
     Dy = YP - YB(j);                                                        % D term (Y-direction)
     E  = sqrt(B-A^2);                                                       % E term
-    if (isnan(E) || ~isreal(E))                                             % If E is a NaN or not real
-        E = 0;                                                              % Set E equal to zero
+    if (~isreal(E))
+        E = 0;
     end
     
     % Compute Mx, Ref [1]
@@ -55,4 +57,12 @@ for j = 1:1:numPan                                                          % Lo
     term1 = 0.5*Cy*log((S(j)^2+2*A*S(j)+B)/B);                              % First term in My equation
     term2 = ((Dy-A*Cy)/E)*(atan2((S(j)+A),E) - atan2(A,E));                 % Second term in My equation
     My(j) = term1 + term2;                                                  % Y-direction geometric integral
+    
+    % Zero out any NANs, INFs, or imaginary numbers
+    if (isnan(Mx(j)) || isinf(Mx(j)) || ~isreal(Mx(j)))
+        Mx(j) = 0;
+    end
+    if (isnan(My(j)) || isinf(My(j)) || ~isreal(My(j)))
+        My(j) = 0;
+    end
 end
