@@ -7,6 +7,7 @@ function [Nx,Ny] = STREAMLINE_VPM(XP,YP,XB,YB,phi,S)
 % Started   : 01/23/19
 % Updated   : 01/23/19 - Started code
 %                      - Works as expected
+%           : 04/28/20 - Updated E value error handling to match Python
 % 
 % PURPOSE
 % - Compute the integral expression for constant strength vortex panels
@@ -46,8 +47,8 @@ for j = 1:1:numPan                                                          % Lo
     Cy = -cos(phi(j));                                                      % Cy term (Y-direction)
     Dy = XP-XB(j);                                                          % Dy term (Y-direction)
     E  = sqrt(B-A^2);                                                       % E term
-    if (isnan(E) || ~isreal(E))                                             % If E is a NaN or imaginary
-        E = 0;                                                              % Set E equal to zero
+    if (~isreal(E))
+        E = 0;
     end
     
     % Compute Nx
@@ -59,4 +60,12 @@ for j = 1:1:numPan                                                          % Lo
     term1 = 0.5*Cy*log((S(j)^2+2*A*S(j)+B)/B);                              % First term in Ny equation
     term2 = ((Dy-A*Cy)/E)*(atan2((S(j)+A),E) - atan2(A,E));                 % Second term in Ny equation
     Ny(j) = term1 + term2;                                                  % Compute Ny integral
+    
+	% Zero out any NANs, INFs, or imaginary numbers
+    if (isnan(Nx(j)) || isinf(Nx(j)) || ~isreal(Nx(j)))
+        Nx(j) = 0;
+    end
+    if (isnan(Ny(j)) || isinf(Ny(j)) || ~isreal(Ny(j)))
+        Ny(j) = 0;
+    end
 end
