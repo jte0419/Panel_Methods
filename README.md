@@ -176,9 +176,11 @@ The source panel method code was updated to be able to solve for the vortex pane
   * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
 
-## Source/Vortex Panel Method System of Equations (COMING SOON!)
+## Source/Vortex Panel Method System of Equations
 
-The previous video on the constant strength vortex panel method will have shown that there are still some limitations with this simplified method, and to improve it we can combine the source and vortex panel methods into one source panel/vortex panel (SPVP) method.  This video will go over how to build the system of equations for the SPVP method and how to derive and apply a different version of the Kutta condition.
+The previous video on the constant strength vortex panel method showed that there are still some limitations with this simplified method, and to improve it we can combine the source and vortex panel methods into one source panel/vortex panel (SPVP) method.  This video covers how to build the system of equations for the SPVP method and how to derive and apply a different version of the Kutta condition.
+
+* [YouTube Video](https://www.youtube.com/watch?v=bc_pkKGEypU)
 
 ## Source/Vortex Panel Method: Airfoil (COMING SOON!)
 
