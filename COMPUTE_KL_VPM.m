@@ -7,6 +7,7 @@ function [K,L] = COMPUTE_KL_VPM(XC,YC,XB,YB,phi,S)
 % Started   : 01/23/19
 % Updated   : 01/23/19 - Started code
 %                      - Works as expected
+%           : 04/28/20 - Updated E value error handling to match Python
 % 
 % PUROSE
 % - Compute the integral expression for constant strength vortex panels
@@ -50,8 +51,8 @@ for i = 1:1:numPan                                                          % Lo
             Ct = sin(phi(j)-phi(i));                                        % C term (tangential)
             Dt = (XC(i)-XB(j))*sin(phi(i))-(YC(i)-YB(j))*cos(phi(i));       % D term (tangential)
             E  = sqrt(B-A^2);                                               % E term
-            if (isnan(E) || ~isreal(E))                                     % If E is a NaN or imaginary
-                E = 0;                                                      % Set E equal to zero
+            if (~isreal(E))
+                E = 0;
             end
             
             % Compute K
@@ -63,17 +64,14 @@ for i = 1:1:numPan                                                          % Lo
             term1  = 0.5*Ct*log((S(j)^2+2*A*S(j)+B)/B);                     % First term in L equation
             term2  = ((Dt-A*Ct)/E)*(atan2((S(j)+A),E)-atan2(A,E));          % Second term in L equation
             L(i,j) = term1 + term2;                                         % Compute L integral
-        else                                                                % If panel j is the same as panel i
-            K(i,j) = 0;                                                     % Set K to zero
-            L(i,j) = 0;                                                     % Set L to zero
         end
         
-        % Zero out any NANs or imaginary numbers
-        if (isnan(K(i,j)) || ~isreal(K(i,j)))                               % If the value of K is a NAN or imaginary
-            K(i,j) = 0;                                                     % Set K to zero
+        % Zero out any NANs, INFs, or imaginary numbers
+        if (isnan(K(i,j)) || isinf(K(i,j)) || ~isreal(K(i,j)))
+            K(i,j) = 0;
         end
-        if (isnan(L(i,j)) || ~isreal(L(i,j)))                               % If the value of L is a NAN or imaginary
-            L(i,j) = 0;                                                     % Set L to zero
+        if (isnan(L(i,j)) || isinf(L(i,j)) || ~isreal(L(i,j)))
+            L(i,j) = 0;
         end
     end
 end
