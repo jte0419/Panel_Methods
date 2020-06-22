@@ -107,7 +107,7 @@ When we take the appropriate partial derivative (normal, tangential, X, or Y) of
 
 * [YouTube SPM Normal Velocity Geometric Integral I(ij) Derivation](https://www.youtube.com/watch?v=76vPudNET6U)
 * [YouTube SPM Tangential Velocity Geometric Integral J(ij) Derivation](https://www.youtube.com/watch?v=JRHnOsueic8)
-* [YouTube SPM Streamline X and Y Geometric Integral (Mx(ij), My(ij)) Derivation](https://www.youtube.com/watch?v=BnPZjGCatcg)
+* [YouTube SPM Streamline X and Y Geometric Integral (Mx(pj), My(pj)) Derivation](https://www.youtube.com/watch?v=BnPZjGCatcg)
 
 ## Source Panel Method System of Equations
 
@@ -149,6 +149,14 @@ After making sure the simple validation case of the circular cylinder worked pro
   * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
 * [YouTube Video](https://www.youtube.com/watch?v=fdNOYdwY9Bw)
+
+## Vortex Panel Methods: Geometric Integrals
+
+For the source panel method, we derived the geometric integral expressions for the normal, tangential, X, and Y directions.  Here, we go through similar derivations, but this time for the vortex panel method.
+
+* [YouTube VPM Normal Velocity Geometric Integral K(ij) Derivation](https://www.youtube.com/watch?v=5lmIv2CUpoc)
+* [YouTube VPM Tangential Velocity Geometric Integral L(ij) Derivation](https://www.youtube.com/watch?v=IxWJzwIG_gY)
+* [YouTube VPM Streamline X and Y Geometric Integral (Nx(pj), Ny(pj)) Derivation](https://www.youtube.com/watch?v=TBwBnW87hso)
 
 ## Vortex Panel Method System of Equations
 
