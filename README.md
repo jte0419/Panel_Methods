@@ -183,6 +183,7 @@ The source panel method code was updated to be able to solve for the vortex pane
 * Other
   * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
+* [YouTube Video](https://www.youtube.com/watch?v=JL2fz-xTTT0)
 
 ## Source/Vortex Panel Method System of Equations
 
