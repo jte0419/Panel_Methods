@@ -214,7 +214,7 @@ We can now implement the matrix system defined in the previous section in our co
 * Other
   * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
-* YouTube video coming soon
+* [YouTube Video](https://www.youtube.com/watch?v=V77QTAgZuqw)
 
 ## Multi-Element Source/Vortex Panel Method (COMING SOON!)
 
