@@ -191,9 +191,30 @@ The previous video on the constant strength vortex panel method showed that ther
 
 * [YouTube Video](https://www.youtube.com/watch?v=bc_pkKGEypU)
 
-## Source/Vortex Panel Method: Airfoil (COMING SOON!)
+## Source/Vortex Panel Method: Airfoil)
 
-This video will implement the necessary changes in the code for the SPVP method.  We will look at a bunch of different airfoil cases that happened to fail in the original VPM implementation.  We will compare results to XFOIL.
+We can now implement the matrix system defined in the previous section in our code.  Note that to run the code, you will need both the SPM and the VPM functions, since this method uses a combination of both of them.  In the YouTube video, we will look at how to implement the changes in the code, and go through some examples of different airfoils.
+
+* MATLAB Code
+  * [SPVP_Airfoil.m](./SPVP_Airfoil.m)
+  * [XFOIL.m](./XFOIL.m)
+  * [COMPUTE_IJ_SPM.m](./COMPUTE_IJ_SPM.m)
+  * [COMPUTE_KL_VPM.m](./COMPUTE_KL_VPM.m)
+  * [STREAMLINE_SPM.m](./STREAMLINE_SPM.m)
+  * [STREAMLINE_VPM.m](./STREAMLINE_VPM.m)
+  * [COMPUTE_CIRCULATION.m](./COMPUTE_CIRCULATION.m)
+* Python Code
+  * [SPVP_Airfoil.py](./SPVP_Airfoil.py)
+  * [XFOIL.py](./XFOIL.py)
+  * [COMPUTE_IJ_SPM.py](./COMPUTE_IJ_SPM.py)
+  * [COMPUTE_KL_VPM.py](./COMPUTE_KL_VPM.py)
+  * [STREAMLINE_SPM.py](./STREAMLINE_SPM.py)
+  * [STREAMLINE_VPM.py](./STREAMLINE_VPM.py)
+  * [COMPUTE_CIRCULATION.py](./COMPUTE_CIRCULATION.py)
+* Other
+  * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
+  * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
+* YouTube video coming soon
 
 ## Multi-Element Source/Vortex Panel Method (COMING SOON!)
 
