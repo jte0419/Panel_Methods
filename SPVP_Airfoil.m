@@ -138,7 +138,7 @@ for i = 1:1:numPan                                                          % Lo
     dx      = XB(i+1)-XB(i);                                                % Change in X between boundary points
     dy      = YB(i+1)-YB(i);                                                % Change in Y between boundary points
     S(i)    = (dx^2 + dy^2)^0.5;                                            % Length of the panel
-	phiD(i) = atan2d(dy,dx);                                                % Angle of the panel (positive X-axis to inside face) [deg]
+    phiD(i) = atan2d(dy,dx);                                                % Angle of the panel (positive X-axis to inside face) [deg]
     if (phiD(i) < 0)                                                        % Make all panel angles positive [deg]
         phiD(i) = phiD(i) + 360;
     end
@@ -175,7 +175,7 @@ end
 
 % Right column of A matrix
 for i = 1:1:numPan                                                          % Loop over all i panels (rows)
-    A(i,numPan+1) = -sum(K(i,:));                                           % Add gamma term to righ-most column of A matrix
+    A(i,numPan+1) = -sum(K(i,:));                                           % Add gamma term to right-most column of A matrix
 end
 
 % Bottom row of A matrix (Kutta condition)
@@ -326,7 +326,7 @@ if (flagPlot(1) == 1)
     end
     xlabel('X Units');                                                      % Set X-label
     ylabel('Y Units');                                                      % Set Y-label
-	xlim('auto');                                                           % Set X-axis limits to auto
+    xlim('auto');                                                           % Set X-axis limits to auto
     ylim('auto');                                                           % Set Y-axis limits to auto
     axis equal;                                                             % Set axes equal
     zoom reset;                                                             % Reset zoom
@@ -346,7 +346,7 @@ if (flagPlot(2) == 1)
     pC = plot(XC,YC,'ko','MarkerFaceColor','r');                            % Plot control points (red circles)
     legend([pB,pC,p1,p2],...                                                % Show legend
            {'Boundary','Control','First Panel','Second Panel'});
-	xlabel('X Units');                                                      % Set X-label
+    xlabel('X Units');                                                      % Set X-label
     ylabel('Y Units');                                                      % Set Y-label
     xlim('auto');                                                           % Set X-axis limits to auto
     ylim('auto');                                                           % Set Y-axis limits to auto
@@ -374,7 +374,7 @@ if (flagPlot(3) == 1)
         end
     end
     fill(XB,YB,'k');                                                        % Plot the airfoil as black polygon
-	legend([p{1},p{2}],{'Negative Cp','Positive Cp'});                      % Show legend
+    legend([p{1},p{2}],{'Negative Cp','Positive Cp'});                      % Show legend
     xlabel('X Units');                                                      % Set X-label
     ylabel('Y Units');                                                      % Set Y-label
     xlim('auto');                                                           % Set X-axis limits to auto
@@ -421,10 +421,10 @@ if (flagPlot(5) == 1)
         set(sl,'LineWidth',2);                                              % Set streamline line width
     end
     fill(XB,YB,'k');                                                        % Plot airfoil as black polygon
-	xlabel('X Units');                                                      % Set X-label
+    xlabel('X Units');                                                      % Set X-label
     ylabel('Y Units');                                                      % Set Y-label
     xlim(xVals);                                                            % Set X-axis limits
-	axis equal;                                                             % Set axes equal
+    axis equal;                                                             % Set axes equal
     ylim(yVals);                                                            % Set Y-axis limits
     zoom reset;                                                             % Reset zoom
 end
@@ -440,7 +440,7 @@ if (flagPlot(6) == 1)
     xlabel('X Units');                                                      % Set X-label
     ylabel('Y Units');                                                      % Set Y-label
     xlim(xVals);                                                            % Set X-axis limits
-	axis equal;                                                             % Set axes equal
+    axis equal;                                                             % Set axes equal
     ylim(yVals);                                                            % Set Y-axis limits
     zoom reset;                                                             % Reset zoom
 end
