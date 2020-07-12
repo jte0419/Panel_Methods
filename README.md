@@ -191,7 +191,7 @@ The previous video on the constant strength vortex panel method showed that ther
 
 * [YouTube Video](https://www.youtube.com/watch?v=bc_pkKGEypU)
 
-## Source/Vortex Panel Method: Airfoil)
+## Source/Vortex Panel Method: Airfoil
 
 We can now implement the matrix system defined in the previous section in our code.  Note that to run the code, you will need both the SPM and the VPM functions, since this method uses a combination of both of them.  In the YouTube video, we will look at how to implement the changes in the code, and go through some examples of different airfoils.
 
@@ -216,6 +216,19 @@ We can now implement the matrix system defined in the previous section in our co
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
 * [YouTube Video](https://www.youtube.com/watch?v=V77QTAgZuqw)
 
-## Multi-Element Source/Vortex Panel Method (COMING SOON!)
+## Multi-Element Source/Vortex Panel Method
 
-This will be the final video of the series, where I adapt the code from the previous section to be able to load multiple airfoils.  I'll show how to load airfoils, manipulate their locations relative to each other, and how to implement the necessary changes to the code to handle multiple airfoils.  We will go over a couple simple examples to test the validity, and then hopefully I'll be able to show a validation case to an airfoil system from a paper.
+This is the final video of the series, where I adapt the code from the single-airfoil SPVP code to be able to handle multi-airfoil systems.  In my YouTube video, I first show how to update the existing code, and then I go through some sanity check cases, some fun cases, and a quasi-validation case.  If you're still here, thanks for sticking around until the end.
+
+* MATLAB Code
+  * [SPVP_Airfoil_N.m](./SPVP_Airfoil_N.m)
+  * [XFOIL_N.m](./XFOIL_N.m)
+  * [COMPUTE_IJ_SPM_N.m](./COMPUTE_IJ_SPM_N.m)
+  * [COMPUTE_KL_VPM_N.m](./COMPUTE_KL_VPM_N.m)
+  * [STREAMLINE_SPM_N.m](./STREAMLINE_SPM_N.m)
+  * [STREAMLINE_VPM_N.m](./STREAMLINE_VPM_N.m)
+  * [COMPUTE_CIRCULATION.m](./COMPUTE_CIRCULATION.m)
+* Other
+  * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
+  * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
+* YouTube Video (coming soon!)
