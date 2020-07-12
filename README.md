@@ -231,4 +231,4 @@ This is the final video of the series, where I adapt the code from the single-ai
 * Other
   * [Airfoil Directory](./Airfoil_DAT_Selig.zip)
   * [XFOIL Executable](https://web.mit.edu/drela/Public/web/xfoil/)
-* YouTube Video (coming soon!)
+* [YouTube Video](https://www.youtube.com/watch?v=DGAuZ5gVYW8)
