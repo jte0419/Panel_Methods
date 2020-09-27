@@ -4,7 +4,7 @@ This repository contains all the code related to panel methods.  This includes s
 
 ## UIUC Airfoil Database File Download
 
-This section is for downloading all the airfoil coordinates from the [UIUC Airfoil Database](https://m-selig.ae.illinois.edu/ads/coord_database.html).  The files are all of type *DAT*, which can be opened in any text editor.  This code is run in Python, since it's free to download.  There are two scripts: one that downloads the files in the default coordinate format (which varies quite a bit), and one that downloads the files in Selig format (which is easier to load into your program of choice).  If I were you, I would download them in Selig format.
+This section is for downloading all the airfoil coordinates from the [UIUC Airfoil Database](https://m-selig.ae.illinois.edu/ads/coord_database.html).  The files are all of type *.dat*, which can be opened in any text editor.  This code is run in Python, since it's free to download.  There are two scripts: one that downloads the files in the default coordinate format (which varies quite a bit), and one that downloads the files in Selig format (which is easier to load into your program of choice).  If I were you, I would download them in Selig format.
 
 * [Get_Save_Airfoils.py](./Get_Save_Airfoils.py)
 * [Get_Save_Airfoils_Selig.py](./Get_Save_Airfoils_Selig.py)
@@ -22,9 +22,9 @@ With the airfoils download from the UIUC database in the previous section, we no
 * [YouTube Video](https://www.youtube.com/watch?v=xJYxMfGFrk8)
 * [Blog Post](http://www.joshtheengineer.com/2019/03/30/load-airfoil-data-into-matlab/)
 
-## Running XFoil from MATLAB and Python
+## Running XFOIL from MATLAB and Python
 
-This section is for running XFoil froma  script in MATLAB/Python.  This is convenient if you want to be able to quickly change a parameter (or multiple parameters) and output the results, but you don't want to go into the command line of XFoil every time.  This is useful for getting airfoil data in a MATLAB GUI for instance.  If you have an edit text box for changing the angle of attack, then every time it's changed by the user, the MATLAB program will call XFoil using the updated AoA value and return the airfoil coordinates and pressure coefficient data (for example).
+This section is for running XFOIL from a script in MATLAB/Python.  This is convenient if you want to be able to quickly change a parameter (or multiple parameters) and output the results, but you don't want to go into the command line of XFOIL every time.  This is useful for getting airfoil data in a MATLAB GUI for instance.  If you have an edit text box for changing the angle of attack, then every time it's changed by the user, the MATLAB program will call XFOIL using the updated AoA value and return the airfoil coordinates and pressure coefficient data (for example).
 
 * [MATLAB_XFOIL.m](./MATLAB_XFOIL.m)
 * [Python_XFoil.py](./Python_XFoil.py)
@@ -34,7 +34,7 @@ This section is for running XFoil froma  script in MATLAB/Python.  This is conve
 
 ## Compute Circulation
 
-Circulation is a fundamental concept in aerodynamics (and more generally, in multivariable calculus).  In order to find the lift of an airfoil using the vortex panel method, the circular around the airfoil needs to be computed.  For pretty much all of the remaining codes, you'll need to have either the MATLAB or Python *COMPUTE_CIRCULATION* function in the run directory.  The script *Circulation* is an example file showing how to use the *COMPUTE_CIRCULATION* function, and is not needed for future codes.
+Circulation is a fundamental concept in aerodynamics (and more generally, in multivariable calculus).  In order to find the lift of an airfoil using the vortex panel method, the circulation around the airfoil needs to be computed.  For pretty much all of the remaining codes, you'll need to have either the MATLAB or Python *COMPUTE_CIRCULATION* function in the run directory.  The script *Circulation* is an example file showing how to use the *COMPUTE_CIRCULATION* function, and is not needed for future codes.
 
 * [Circulation.m](./Circulation.m)
 * [COMPUTE_CIRCULATION.m](./COMPUTE_CIRCULATION.m)
@@ -91,13 +91,13 @@ The first step in writing your own panel method code is to understand the geomet
 
 ## Building More Complex Potential Flows
 
-In the *Elementary Potential Flows* section, we went over all the relevant elementary incompressible potential flows.  We can now use these to build up a more complex flow step by step.  The end result of this section is to obtain an expression for the velocity potential induced at an arbitrary point P in the flow due to uniform flow and N source panels (that approximate the airfoil geometry).
+In the *Elementary Potential Flows* section, we went over all the relevant elementary incompressible potential flows.  We can now use these to build up a more complex flow step-by-step.  The end result of this section is to obtain an expression for the velocity potential induced at an arbitrary point P in the flow due to uniform flow and N source panels (that approximate the airfoil geometry).
 
 * [YouTube Video](https://www.youtube.com/watch?v=EKzbwJvKcmw)
 
 ## Flow Around an Airfoil
 
-How do we use the velocity potential equation derived in the previous section to compute the flow around an airfoil?  This section explains the necessary conditions that we can use to compute the unknown source panel strengths.  We use the boundary condition for an impermeable (solid) object to stipulate that the normal velocity at each panel control point should be zero.
+How do we use the velocity potential equation derived in the previous section to compute the flow around an airfoil?  This section explains the necessary conditions that we can use to compute the unknown source panel strengths.  We use the boundary condition for an impermeable (solid) object to stipulate that the normal velocity at each panel control point should be zero.  In the video, we also simplify down the resulting uniform flow term in the velocity equation.
 
 * [YouTube Video](https://www.youtube.com/watch?v=cLdv1UfX1g8)
 
@@ -131,7 +131,7 @@ We have finally finished the derivations needed to code up a working version of 
 
 ## Source Panel Method: Airfoil
 
-After making sure the simple validation case of the circular cylinder worked properly, we updated the code to be able to run with airfoils.  There are a couple more functions, programs, and directories needed when running this code.  You can run my code in either MATLAB or Python.  Whichever you choose, make sure to download all the files with that extension (*.m* or *.py*) from the list below.  You will also need the directory with the airfoils (*Airfoil_DAT_Selig*, make sure to extract after downloading the *zip* file) and the XFOIL executable (*xfoil.exe*) in the directory with all the code.  To run the code, open the *SP_Airfoil* script and press *Run* or *F5*.
+After making sure the simple validation case of the circular cylinder worked properly, we updated the code to be able to run with airfoils.  There are a couple more functions, programs, and directories needed when running this code.  You can run my code in either MATLAB or Python.  Whichever you choose, make sure to download all the files with that extension (*.m* or *.py*) from the list below.  You will also need the directory with the airfoils (*Airfoil_DAT_Selig*, make sure to extract after downloading the *zip* file) and the XFOIL executable (*xfoil.exe*) in the directory with all the code.  To execute the code, run the *SP_Airfoil* script.
 
 * MATLAB Code
   * [SP_Airfoil.m](./SP_Airfoil.m)
@@ -166,7 +166,7 @@ In the same way that we wrote the system of equations for the source panel metho
 
 ## Vortex Panel Method: Airfoil
 
-The source panel method code was updated to be able to solve for the vortex panel strengths instead of the source panel strengths.  You can run my code in either MATLAB or Python.  Whichever you choose, make sure to download all the files with that extension (*.m* or *.py*) from the list below.  You will also need the directory with the airfoils (*Airfoil_DAT_Selig*, make sure to extract after downloading the *zip* file) and the XFOIL executable (*xfoil.exe*) in the directory with all the code.  To run the code, open the *VP_Airfoil* script and press *Run* or *F5*.  The limitations of this VPM implementation are shown in my YouTube video, and motivate the need for the combined source/vortex panel method.
+The source panel method code was updated to be able to solve for the vortex panel strengths instead of the source panel strengths.  You can run my code in either MATLAB or Python.  Whichever you choose, make sure to download all the files with that extension (*.m* or *.py*) from the list below.  You will also need the directory with the airfoils (*Airfoil_DAT_Selig*, make sure to extract after downloading the *zip* file) and the XFOIL executable (*xfoil.exe*) in the directory with all the code.  To execute the code, run the *VP_Airfoil* script.  The limitations of this VPM implementation are shown in my YouTube video, and motivate the need for the combined source/vortex panel method.
 
 * MATLAB Code
   * [VP_Airfoil.m](./VP_Airfoil.m)
